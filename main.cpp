@@ -9,7 +9,7 @@ bool login(){
     std::cin>>pw;
     return 0;
 }
-//w
+//we
 bool jc(std::string a){
     int dx=0,xx=0,zm=0,zf=0;
     if(a.length()<12||a.length()>72) return 0;
