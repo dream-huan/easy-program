@@ -1,17 +1,16 @@
 #include<iostream>
 #include<algorithm>
-using namespace std;
 
 bool login(){
-    string id,pw;
-    cout<<"Please enter your id and password\nid:";
-    cin>>id;
-    cout<<"password:";
-    cin>>pw;
+    std::string id,pw;
+    std::cout<<"Please enter your id and password\nid:";
+    std::cin>>id;
+    std::cout<<"password:";
+    std::cin>>pw;
     return 0;
 }
 
-bool jc(string a){
+bool jc(std::string a){
     int dx=0,xx=0,zm=0,zf=0;
     if(a.length()<12||a.length()>72) return 0;
     for(int i=0;i<a.length();i++){
@@ -25,23 +24,25 @@ bool jc(string a){
 }
 
 bool regist(){
-    string id,pw;
-    cout<<"Please enter your id and password,warning:id must be greater than 6 bits and less than 22 bits,\npassword must be greater than 12 bits and less than 72 bits and contain three of the characters,uppercase letters,lowercase letters and numbers\nid:";
-    cin>>id;
-    while(id.length()<6||id.length()>22) cout<<"It seems that your id violate our stipulate,Please try again.\nid:",cin>>id;
-    cout<<"password:";
-    cin>>pw;
-    while(!jc(pw)) cout<<"It seems that your password violate our stipulate,Please try again.\npassword:",cin>>pw;
-    cout<<"Confirm your information......"<<endl<<"Setting up your account"<<endl<<"go to login......."<<endl;
+    std::string id,pw;
+    std::cout<<"Please enter your id and password,warning:id must be greater than 6 bits and less than 22 bits,\npassword must be greater than 12 bits and less than 72 bits and contain three of the characters,uppercase letters,lowercase letters and numbers\nid:";
+    std::cin>>id;
+    while(id.length()<6||id.length()>22) std::cout<<"It seems that your id violate our stipulate,Please try again.\nid:",std::cin>>id;
+    std::cout<<"password:";
+    std::cin>>pw;
+    while(!jc(pw)) std::cout<<"It seems that your password violate our stipulate,Please try again.\npassword:",std::cin>>pw;
+    std::cout<<"Confirm your information......"<<std::endl<<"Setting up your account"<<std::endl<<"go to login......."<<std::endl;
     login();
     return 1;
 }
 
 int main(){
-    ios::sync_with_stdio(false);
-    //cin.tie(0);cout.tie(0);
-    cout<<"Do you have our platform id?if yes,enter 1.if no,enter 0.";
-    bool temp;cin>>temp;
-    temp&1?login():regist();
+    std::ios::sync_with_stdio(false);
+    //std::cin.tie(0);std::cout.tie(0);
+    std::cout<<"Do you have our platform id?if yes,enter 1.if no,enter 0.";
+    std::string yzs;
+    std::cin>>yzs;
+    if(yzs.length()==1) yzs[0]-'0'==1?login():regist();
+    else regist();
     return 0;
 }
